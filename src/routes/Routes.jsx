@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router";
 import MainLayout from '../layout/MainLayout/MainLayout.jsx';
 import Home from '../pages/Home/Home.jsx';
 import Books from '../pages/Books/Books.jsx';
+import ErrorPage from '../pages/Error/ErrorPage.jsx';
 
 const router = createBrowserRouter([
     {
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
                 Component: Books
             }
         ],
-        errorElement: <h2>Error 404</h2>
+        errorElement: <ErrorPage />,
     },
 
 ]);
