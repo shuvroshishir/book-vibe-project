@@ -1,10 +1,20 @@
 import React from 'react';
-import NavLinks from './NavLinks';
+import { NavLink } from 'react-router';
 
 const Nav = () => {
+
+    // no need to create a component for this store in variable
+    const NavLinks = (
+        <>
+            <li><NavLink className={({ isActive }) => `font-semibold mr-2 ${isActive ? 'text-green-500 border border-green-500' : ''}`} to='/'>Home</NavLink></li>
+            <li><NavLink className={({ isActive }) => `font-semibold mr-2 ${isActive ? 'text-green-500 border border-green-500' : ''}`} to='/books'>Listed Books</NavLink></li>
+            <li><NavLink className={({ isActive }) => `font-semibold mr-2 ${isActive ? 'text-green-500 border border-green-500' : ''}`} to='/page-to-read'>Pages to Read</NavLink></li>
+
+        </>)
+
     return (
-        <nav>
-            <div className="navbar bg-base-100 shadow-sm">
+        <nav className='bg-base-100 shadow-sm'>
+            <div className="navbar container mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -13,19 +23,19 @@ const Nav = () => {
                         <ul
                             tabIndex="-1"
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                            <NavLinks />
+                            {NavLinks}
                         </ul>
                     </div>
                     <a className="btn btn-ghost text-xl">Book Vibe</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <NavLinks />
+                        {NavLinks}
                     </ul>
                 </div>
                 <div className="navbar-end gap-2">
-                    <button class="btn  btn-success text-white">Signin</button>
-                    <button class="btn btn-primary text-white">Signup</button>
+                    <button className="btn  btn-success text-white">Signin</button>
+                    <button className="btn btn-info text-white">Signup</button>
                 </div>
             </div>
         </nav>
