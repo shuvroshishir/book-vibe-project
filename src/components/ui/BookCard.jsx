@@ -1,24 +1,8 @@
 import React from 'react';
+import { FaStar } from "react-icons/fa";
 
 const BookCard = ({ book }) => {
-    /**
-     * {
-    "bookId": 1,
-    "bookName": "The Great Gatsby",
-    "author": "F. Scott Fitzgerald",
-    "image": "https://i.ibb.co.com/khHN7Pk/9780143454212.jpg",
-    "review": "'The Great Gatsby' by F. Scott Fitzgerald is a timeless masterpiece that delves into the decadence and disillusionment of the Jazz Age. Set in the Roaring Twenties, the novel unveils the enigmatic Jay Gatsby's extravagant parties, masking a pursuit of lost love. Narrated by Nick Carraway, the story explores themes of wealth, love, and the American Dream, drawing readers into a vivid portrayal of the glittering yet elusive world of the East and West Egg. Fitzgerald's prose is both poetic and haunting, weaving a compelling narrative that transcends its era. A poignant exploration of societal excess and the human condition, 'The Great Gatsby' remains a literary gem that resonates across generations.",
-    "totalPages": 192,
-    "rating": 4.5,
-    "category": "Classic",
-    "tags": [
-        "Fiction",
-        "Romance"
-    ],
-    "publisher": "Scribner",
-    "yearOfPublishing": 1925
-}
-     */
+
     const {
         bookName,
         author,
@@ -33,7 +17,7 @@ const BookCard = ({ book }) => {
 
             {/* Image */}
             <div className="bg-gray-100 rounded-xl p-6 flex items-center justify-center mb-4">
-                <img src={image} alt='' className="h-40 object-contain" />
+                <img src={image} alt={bookName} className="h-40 object-contain" />
             </div>
 
             {/* Tags */}
@@ -67,7 +51,8 @@ const BookCard = ({ book }) => {
 
                 <div className="flex items-center gap-1">
                     <span>{rating}</span>
-                    <i class="fa-solid fa-star text-yellow-300"></i>
+                    <i className="fa-solid fa-star text-yellow-300"></i>
+                    {/* <FaStar className='text-yellow-300 text-lg' /> */}
                 </div>
             </div>
 
