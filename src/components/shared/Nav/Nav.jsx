@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router';
-
+import logo from '/logo.png';
 const Nav = () => {
 
     // no need to create a component for this store in variable
@@ -26,7 +26,10 @@ const Nav = () => {
                             {NavLinks}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">Book Vibe</a>
+                    <div className='logo flex items-center gap-1.5'>
+                        <img src={logo} alt="" width='25px' />
+                        <a className="playfair-font font-bold text-2xl"> Book Vibe</a>
+                    </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

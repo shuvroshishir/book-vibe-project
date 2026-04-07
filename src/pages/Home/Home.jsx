@@ -5,7 +5,7 @@ import AllBooks from '../../components/home/AllBooks';
 
 const Home = () => {
     return (
-        <section className='Home-Section container mx-auto'>
+        <section className='home-section container mx-auto'>
             <Banner />
             <AllBooks />
         </section>

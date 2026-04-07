@@ -1,9 +1,11 @@
 import React from 'react';
 import { FaStar } from "react-icons/fa";
+import { useNavigate } from 'react-router';
 
 const BookCard = ({ book }) => {
-
+    const navigate = useNavigate();
     const {
+        bookId,
         bookName,
         author,
         image,
@@ -11,9 +13,13 @@ const BookCard = ({ book }) => {
         category,
         tags
     } = book;
-
+    const handleClick = () => {
+        navigate(`/book-details/${bookId}`)
+    }
     return (
-        <div className="book-card bg-white rounded-2xl shadow-sm p-5 w-full max-w-sm border border-gray-100 hover:shadow-md transition duration-300 h-full flex flex-col">
+        <div
+            onClick={handleClick}
+            className="book-card bg-white rounded-2xl shadow-sm p-5 w-full max-w-sm border border-gray-100 hover:shadow-md hover:scale-102 transition ease-in-out cursor-pointer duration-200 h-full flex flex-col">
 
             {/* Image */}
             <div className="bg-gray-100 rounded-xl p-6 flex items-center justify-center mb-4">
