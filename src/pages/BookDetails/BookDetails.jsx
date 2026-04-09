@@ -6,8 +6,6 @@ import BookNotFound from './BookNotFound';
 const BookDetails = () => {
     const { id } = useParams();
     const bookData = useLoaderData();
-    // console.log(id, 'id');
-    console.log(bookData);
 
     const expectedBook = bookData.find(book => book.bookId == id);
 

@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { BookContext } from '../../context/BookContext';
 
 const BookDetailsCard = ({ expectedBook }) => {
 
     const { bookName, author, image, review, totalPages, rating, category, tags, publisher, yearOfPublishing } = expectedBook;
+
+    const { handleMarkAsRead, handleWishList } = useContext(BookContext)
 
     return (
         <div className="container mx-auto rounded-2xl p-4 md:p-6 lg:p-10">
@@ -75,10 +78,14 @@ const BookDetailsCard = ({ expectedBook }) => {
 
                     {/* Buttons */}
                     <div className="flex flex-col sm:flex-row gap-3 mt-6">
-                        <button className="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-200 transition">
+                        <button
+                            onClick={() => handleMarkAsRead(expectedBook)}
+                            className="px-6 py-2 text-white bg-green-500 rounded-lg hover:bg-green-600 transition">
                             Mark as Read
                         </button>
-                        <button className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
+                        <button
+                            onClick={() => handleWishList(expectedBook)}
+                            className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
                             Add to Wishlist
                         </button>
                     </div>

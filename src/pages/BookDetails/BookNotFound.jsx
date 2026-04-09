@@ -18,12 +18,14 @@ const BookNotFound = () => {
 
                 {/* Title */}
                 <h1 className="text-2xl md:text-3xl font-bold text-gray-800">
-                    Book Not Found
+                    No Book Found
                 </h1>
 
                 {/* Subtitle */}
                 <p className="text-gray-500 mt-3 text-sm md:text-base">
-                    Oops! The book you're looking for doesn't exist or may have been removed.
+                    Oops! There is no Book.
+                    <br />
+                    Please Browse Books from Home.
                 </p>
 
                 {/* Actions */}
@@ -32,12 +34,6 @@ const BookNotFound = () => {
                     <Link to="/">
                         <button className="px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">
                             Go Home
-                        </button>
-                    </Link>
-
-                    <Link to="/books">
-                        <button className="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-200 transition">
-                            Browse Books
                         </button>
                     </Link>
 
