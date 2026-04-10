@@ -4,6 +4,7 @@ import { FiMapPin } from "react-icons/fi";
 import { LuUsers } from "react-icons/lu";
 import { BookContext } from "../../context/BookContext";
 import { useNavigate } from "react-router";
+import { useContext } from "react";
 
 const BookCard2 = ({ book }) => {
     const navigate = useNavigate();
@@ -13,6 +14,9 @@ const BookCard2 = ({ book }) => {
     const handleClick = () => {
         navigate(`/book-details/${bookId}`)
     }
+
+    const { handleDelete } = useContext(BookContext);
+
 
     return (
         <div className="bg-base-100 rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row gap-5 md:gap-6 shadow">
@@ -84,8 +88,13 @@ const BookCard2 = ({ book }) => {
 
                     <button
                         onClick={handleClick}
-                        className="bg-green-600 hover:bg-green-700 text-white px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm w-full sm:w-auto">
+                        className="bg-green-500 hover:bg-green-600 text-white px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm w-full sm:w-auto">
                         View Details
+                    </button>
+                    <button
+                        onClick={() => handleDelete(bookId)}
+                        className="bg-red-500 hover:bg-red-600 text-white px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm w-full sm:w-auto">
+                        Delete
                     </button>
                 </div>
             </div>

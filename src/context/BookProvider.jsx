@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 const BookProvider = ({ children }) => {
     const [readList, setReadList] = useState([])
     const [wishList, setWishList] = useState([])
+    const [tab, setTab] = useState('read');
 
     const handleMarkAsRead = (currentBook) => {
         const isExist = readList.find(book => book.bookId === currentBook.bookId);
@@ -32,13 +33,25 @@ const BookProvider = ({ children }) => {
         }
     }
 
+    const handleDelete = (bookId) => {
+        if (tab === 'read') {
+            setReadList(readList.filter(book => book.bookId != bookId))
+        } else {
+            setWishList(wishList.filter(book => book.bookId != bookId))
+        }
+    }
+
+
     const data = {
         readList,
         setReadList,
         wishList,
         setWishList,
         handleMarkAsRead,
-        handleWishList
+        handleWishList,
+        handleDelete,
+        tab,
+        setTab
     }
 
     return (
