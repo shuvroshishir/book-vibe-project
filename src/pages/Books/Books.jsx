@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { BookContext } from '../../context/BookContext';
 import { IoIosArrowDropdown } from "react-icons/io";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -9,11 +9,12 @@ import BookNotFound from '../BookDetails/BookNotFound';
 
 const Books = () => {
     const { readList, wishList } = useContext(BookContext);
+    const [sortingType, setSortingType] = useState('default')
 
     return (
         <section className='listed-books container mx-auto min-h-screen'>
             <div className='py-8 rounded-2xl bg-base-300 my-4 text-center'>
-                <h2 className='text-[28px] font-bold'>Books</h2>
+                <h2 className='text-[28px] font-bold'>Books Manager</h2>
             </div>
 
             {/* sort by */}
@@ -21,17 +22,18 @@ const Books = () => {
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="bg-green-500 text-white px-4 py-2 rounded-md flex items-center gap-2 hover:bg-green-600 transition m-1">Sort By <IoIosArrowDropdown size={18} /></div>
                     <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                        <li><a>Rating</a></li>
-                        <li><a>Number of Pages</a></li>
-                        <li><a>Publish Year</a></li>
+                        <li onClick={() => setSortingType('default')}><a>Default</a></li>
+                        <li onClick={() => setSortingType('rating')}><a>Rating - DESC</a></li>
+                        <li onClick={() => setSortingType('pages')}><a>Number of Pages - ASC</a></li>
+                        <li onClick={() => setSortingType('year')}><a>Publish Year - DESC</a></li>
                     </ul>
                 </div>
             </div>
 
             <Tabs>
                 <TabList>
-                    <Tab><span className='text-green-500'>Read Books</span></Tab>
-                    <Tab><span className='text-green-500'>Wishlist Books</span></Tab>
+                    <Tab><span className='text-green-500'>Read Books ({readList.length})</span></Tab>
+                    <Tab><span className='text-green-500'>Wishlist Books ({wishList.length})</span></Tab>
                 </TabList>
 
                 <TabPanel>
@@ -39,7 +41,7 @@ const Books = () => {
                         readList.length === 0 ?
                             <BookNotFound />
                             :
-                            <ReadListBooks />
+                            <ReadListBooks sortingType={sortingType} />
                     }
                 </TabPanel>
                 <TabPanel>
@@ -47,7 +49,7 @@ const Books = () => {
                         wishList.length === 0 ?
                             <BookNotFound />
                             :
-                            <WishListBooks />
+                            <WishListBooks sortingType={sortingType} />
                     }
                 </TabPanel>
             </Tabs>
