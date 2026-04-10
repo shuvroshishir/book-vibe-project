@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
 import { BookContext } from './BookContext';
 import { toast } from 'react-toastify';
+import { addReadListToLocalDB, addWishListToLocalDB, getAllReadListFromLocalDB, getAllWishListFromLocalDB } from '../utils/localDB';
 
 const BookProvider = ({ children }) => {
-    const [readList, setReadList] = useState([])
-    const [wishList, setWishList] = useState([])
+    const [readList, setReadList] = useState(() => getAllReadListFromLocalDB())
+    const [wishList, setWishList] = useState(() => getAllWishListFromLocalDB())
     const [tab, setTab] = useState('read');
+
 
     const handleMarkAsRead = (currentBook) => {
         const isExist = readList.find(book => book.bookId === currentBook.bookId);
         if (!isExist) {
             toast.success(`${currentBook.bookName} - successfully added in read list.`)
             setReadList([...readList, currentBook]);
+
+            addReadListToLocalDB(currentBook);
         } else {
             toast.error(`${currentBook.bookName} - already in read List.`);
         }
@@ -28,16 +32,25 @@ const BookProvider = ({ children }) => {
         if (!isExist) {
             toast.success(`${currentBook.bookName} - successfully added in wish list.`);
             setWishList([...wishList, currentBook]);
+
+            addWishListToLocalDB(currentBook)
         } else {
             toast.error(`This book is already in wish list.`);
         }
     }
 
     const handleDelete = (bookId) => {
+
         if (tab === 'read') {
-            setReadList(readList.filter(book => book.bookId != bookId))
+            const updated = readList.filter(book => book.bookId !== bookId);
+            setReadList(updated);
+
+            localStorage.setItem("readList", JSON.stringify(updated));
         } else {
-            setWishList(wishList.filter(book => book.bookId != bookId))
+            const updated = wishList.filter(book => book.bookId !== bookId);
+            setWishList(updated);
+
+            localStorage.setItem("wishList", JSON.stringify(updated));
         }
     }
 
