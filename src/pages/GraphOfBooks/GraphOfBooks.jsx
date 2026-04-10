@@ -1,5 +1,8 @@
 import React from 'react';
-import BookGraph from '../../components/graphOfBooks/BookGraph';
+import { lazy, Suspense } from "react";
+
+const BookGraph = lazy(() => import("../../components/graphOfBooks/BookGraph"));
+
 
 const GraphOfBooks = () => {
     return (
@@ -10,7 +13,12 @@ const GraphOfBooks = () => {
                 </h2>
             </div>
             <div className='graph flex justify-center'>
-                <BookGraph />
+                <Suspense fallback={
+                    <div className='h-36 flex justify-center items-center'>
+                        <span className="loading loading-spinner text-success"></span>
+                    </div>}>
+                    <BookGraph />
+                </Suspense>
             </div>
         </section>
     );
