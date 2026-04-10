@@ -1,16 +1,35 @@
-# React + Vite
+# 📚 Book Vibe
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🔗 Live Site: https://bookvibe-sk.netlify.app/  
+💻 GitHub Repo: https://github.com/shuvroshishir/book-vibe-project  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Project Overview
 
-## React Compiler
+**Book Vibe** is a modern and responsive web application designed for book lovers to explore, manage, and organize their reading journey.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Users can browse books, add them to a **Read List** or **Wishlist**, and visualize their reading data through interactive graphs.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+
+- 📖 Browse and explore books
+- ❤️ Add books to Wishlist
+- ✅ Add books to Read List
+- 🗑️ Remove books from lists
+- 💾 Persistent data using Local Storage
+- 📊 Interactive book statistics using charts
+- 🔍 Detailed book information page
+- 📱 Fully responsive (mobile, tablet, desktop)
+
+---
+
+## 🛠️ Tech Stack
+
+- ⚛️ React.js
+- 🎨 Tailwind CSS
+- 📊 Recharts (for data visualization)
+- 🔄 React Router
+- 💾 Local Storage (for state persistence)
