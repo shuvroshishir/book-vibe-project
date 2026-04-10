@@ -8,7 +8,7 @@ const Nav = () => {
         <>
             <li><NavLink className={({ isActive }) => `font-semibold mr-2 ${isActive ? 'text-green-500 border border-green-500' : ''}`} to='/'>Home</NavLink></li>
             <li><NavLink className={({ isActive }) => `font-semibold mr-2 ${isActive ? 'text-green-500 border border-green-500' : ''}`} to='/books'>Listed Books</NavLink></li>
-            <li><NavLink className={({ isActive }) => `font-semibold mr-2 ${isActive ? 'text-green-500 border border-green-500' : ''}`} to='/page-to-read'>Pages to Read</NavLink></li>
+            <li><NavLink className={({ isActive }) => `font-semibold mr-2 ${isActive ? 'text-green-500 border border-green-500' : ''}`} to='/graph-of-books'>Graph of Books</NavLink></li>
 
         </>)
 

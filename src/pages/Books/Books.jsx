@@ -15,9 +15,9 @@ const Books = () => {
 
     return (
         <section className='listed-books container mx-auto min-h-screen'>
-            <div className='py-8 rounded-2xl bg-base-300 my-4 text-center'>
+            <div className='py-8 rounded-2xl bg-base-200 my-6 text-center'>
                 {/* <h2 className='text-[28px] font-bold bg-linear-to-r from-green-700 to-green-300 text-clip'>Books Manager</h2> */}
-                <h2 className="text-[28px] font-bold inline-block border-b-4 border-transparent bg-gradient-to-r from-green-400 to-blue-500 bg-[length:100%_4px] bg-no-repeat bg-bottom">
+                <h2 className="text-[28px] font-bold inline-block border-b-4 border-transparent bg-linear-to-r from-green-400 to-blue-500 bg-size-[100%_4px] bg-no-repeat bg-bottom">
                     Books Manager
                 </h2>
             </div>

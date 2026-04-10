@@ -5,6 +5,7 @@ import Home from '../pages/Home/Home.jsx';
 import Books from '../pages/Books/Books.jsx';
 import ErrorPage from '../pages/Error/ErrorPage.jsx';
 import BookDetails from '../pages/BookDetails/BookDetails.jsx';
+import GraphOfBooks from '../pages/graphOfBooks/GraphOfBooks.jsx';
 
 const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
                 path: 'book-details/:id',
                 Component: BookDetails,
                 loader: () => fetch('/booksData.json')
+            },
+            {
+                path: 'graph-of-books',
+                Component: GraphOfBooks
             }
         ],
         errorElement: <ErrorPage />,
